@@ -19,7 +19,7 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(0, 0, 128);
+  background(255);
   sourceImg.loadPixels();
   maskImg.loadPixels();
   colorMode(HSB);
@@ -50,6 +50,11 @@ function draw () {
     }
     renderCounter = renderCounter + num_lines_to_draw;
     updatePixels();
+    if(renderCounter > 1080) {
+      curLayer = 1;
+      renderCounter = 0;
+      print("Switching to curLayer 1");
+    }
   }
   else if (curLayer == 1) {
     for(let i=0; i<500; i++) {
@@ -65,8 +70,13 @@ function draw () {
       }
     }
     renderCounter = renderCounter + 1;
+    if(renderCounter > 500) {
+      curLayer = 2;
+      renderCounter = 0;
+      print("Switching to curLayer 2");
+    }
   }
-  else {
+  else if (curLayer == 2) {
     rectMode(CORNERS);
     for(let i=0; i<100; i++) {
       let x1 = random(0, width);
@@ -87,24 +97,81 @@ function draw () {
       }
     }
     renderCounter = renderCounter + 1;
-    // set(i, j, new_col);
+    if(renderCounter > 1500) {
+      curLayer = 3;
+      renderCounter = 0;
+      print("Switching to curLayer 3");
+    }
   }
-  // print(renderCounter);
-  if(curLayer == 0 && renderCounter > 1080) {
-    curLayer = 1;
-    renderCounter = 0;
-    print("Switching to curLayer 1");
+  else if (curLayer == 3) {
+    let totalDots = 20000;
+    let dotsPerFrame = 10;
+    for (let i = 0; i < dotsPerFrame; i++) {
+      let x = random(width);
+      let y = random(height);
+      let maskData = maskImg.get(x, y);
+      let d = random(2, 20);
+      colorMode(RGB);
+      noStroke();
+      if (maskData[1] < 128) {
+        fill(255, 0, 0);
+      } else {
+        fill(255, 192, 203);
+      }
+      ellipse(x, y, d, d);
+      // tiny yellow square at center of each dot
+      rectMode(CENTER);
+      noStroke();
+      fill(255, 255, 0);
+      let squareSize = d * 0.3;
+      rect(x, y, squareSize, squareSize);
+      // restore ellipse mode if needed
+      // (optional) rectMode(CORNER);
+    }
+    renderCounter += dotsPerFrame;
+    if (renderCounter >= totalDots) {
+      curLayer = 4;
+      renderCounter = 0;
+      print("Switching to curLayer 4");
+    }
   }
-  if(curLayer == 1 && renderCounter > 500) {
-    curLayer = 2;
-    renderCounter = 0;
-    print("Switching to curLayer 2");
-  }
-  else if(curLayer == 2 && renderCounter > 1500) {
-    console.log("Done!")
+  else if (curLayer == 4) {
+    // Chuck Close–inspired cell grid over the masked area
+    let blockSize = 20;
+    rectMode(CORNER);
+    colorMode(HSB, 360, 100, 100);
+    for (let y = 0; y < height; y += blockSize) {
+      for (let x = 0; x < width; x += blockSize) {
+        let mx = x + blockSize / 2;
+        let my = y + blockSize / 2;
+        let maskData = maskImg.get(mx, my);
+        if (maskData[1] > 128) {
+          let pix = sourceImg.get(mx, my);
+          let col = color(pix);
+          let h = hue(col) + random(-20, 20);
+          let s = map(maskData[2], 0, 255, 60, 100);
+          let b = map(brightness(col), 0, 100, 40, 90);
+          fill(h, s, b);
+          noStroke();
+          rect(x, y, blockSize, blockSize);
+          noFill();
+          stroke(h, 100, 100);
+          strokeWeight(1);
+          rect(x, y, blockSize, blockSize);
+          // draw centered inner pixel with opposite hue
+          let innerSize = blockSize * 0.3;
+          let offset = (blockSize - innerSize) / 2;
+          let innerX = x + offset;
+          let innerY = y + offset;
+          let oppositeHue = (h + 180) % 360;
+          noStroke();
+          fill(oppositeHue, s, b);
+          rect(innerX, innerY, innerSize, innerSize);
+        }
+      }
+    }
+    console.log("Done!");
     noLoop();
-    // uncomment this to save the result
-    // saveArtworkImage(outputFile);
   }
 }
 
