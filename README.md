@@ -7,6 +7,8 @@
 
 ## 🔍 Project Context
 
+(At the outset this is playing on a kind of building process where I am not hiding away from where it orginitaed, I am not trying to divert the attention from the foundation upon which the code process and the base of the output was built. Why hide?)
+
 **Render Theatre** is a conceptual experiment in image processing, performance, and cultural criticism. It transforms a still photograph into a multi-stage, slowly-revealed digital composition — an *aesthetic theatre of computation*.
 
 Using a masked input image ("INPUT") as the foundation, the system interprets visual noise, cultural residue, and computational precision as ingredients in a stylized, layered response to an otherwise mundane image.
