@@ -7,7 +7,7 @@
 
 ## 🔍 Project Context
 
-(At the outset this is playing on a kind of building process where I am not hiding away from where it orginitaed, I am not trying to divert the attention from the foundation upon which the code process and the base of the output was built. Why hide?)
+(At the outset this is playing on a kind of building process where I am not hiding away from where it orginitaed, I am not trying to divert the attention from the foundation upon which the code process and the base of the output was built. Why hide? I also don't want to diagnose every choice, half the fun is then muted.)
 
 **Render Theatre** is a conceptual experiment in image processing, performance, and cultural criticism. It transforms a still photograph into a multi-stage, slowly-revealed digital composition — an *aesthetic theatre of computation*.
 
@@ -52,13 +52,14 @@ We don’t render cigarettes because they matter. We render them because we *tre
 - **Yellow**: highlights cigarette zones — glowing, selected, watched
 
 ### • Red & Pink Dots + Yellow Inset Squares
-- **Red (background)** & **Pink (subject)**: sociocultural noise
+- **Red (background)** & **Pink (subject)**: sociocultural noise (fleshy vibe)
 - **Yellow squares**: digital markers — evoke heatmaps, tagging systems, facial recognition
 
 ### • Chuck Close Grid Layer
 - Inspired by Chuck Close’s fragmentation of identity  
 - Each pixel block is recolored, paired with its complementary hue
 - **Conceptual twist**: “You are unique, but you are also a system.”
+- It's like a heat map -> age of surveliance you are being watched
 
 ### • Frame-by-Frame Rendering
 - Not inefficiency — **ritual**
