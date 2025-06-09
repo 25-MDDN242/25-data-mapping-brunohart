@@ -25,7 +25,7 @@ But this isn’t just technical layering. It’s about meaning. It’s about myt
 
 ---
 
-## 🎭 Why Cigarettes?
+## Why Cigarettes?
 
 **Warholian irony meets generational dread.**
 
@@ -45,7 +45,7 @@ We don’t render cigarettes because they matter. We render them because we *tre
 
 ---
 
-## 🌈 Aesthetic Design Choices
+## Aesthetic Design Choices
 
 ### • White & Yellow Sprinkles
 - **White**: ambient static, digital ash, flickering fragility  
@@ -70,7 +70,7 @@ We don’t render cigarettes because they matter. We render them because we *tre
 
 ---
 
-## 🍯 Layers as Acts
+## Layers as Acts
 
 > The rendering process is structured like a theatre piece:
 
@@ -107,7 +107,7 @@ We don’t render cigarettes because they matter. We render them because we *tre
 
 ---
 
-## 🔨 Programmatic Process
+## Programmatic Process
 
 ### • Semantic Layer Structure (`curLayer`)
 Each layer is an **act**. The sketch progresses like a performance script.
